@@ -29,7 +29,7 @@ app.post('/send-email', (req, res) => {
         from: process.env.FROM,
         to: process.env.TO, // Receiver's email
         subject: `Message from Visitor on SKMCH`,
-        text: "Name: "+name+"\nEmail: "+email+"\nPhone:"+phone+"\nMessage: "+message+"\n\nDate: "+new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })+"\nTime: "+new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }),
+        text: "Name: "+name+"\nEmail: "+email+"\nPhone:"+phone+"\nMessage: "+message+"\n\nDate: "+new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })+"\nTime: "+new Date(new Date().getTime() + 5.5 * 60 * 60 * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }),
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
